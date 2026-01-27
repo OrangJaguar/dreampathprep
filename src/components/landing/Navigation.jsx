@@ -30,13 +30,13 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             <img 
-              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/596edc1ae_Logo_Cream_Icon.png"
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/82f700ed7_image-removebg-preview8.png"
               alt="DreamPathPrep Icon"
-              className="h-8 md:h-10 w-auto"
+              className="h-10 md:h-12 w-auto"
             />
-            <span className="text-white font-semibold text-lg tracking-wide">DreamPathPrep</span>
+            <span className="text-white font-semibold text-base md:text-lg tracking-wide">DreamPathPrep</span>
           </div>
 
           {/* Desktop Nav */}
