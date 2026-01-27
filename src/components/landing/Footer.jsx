@@ -73,44 +73,47 @@ export default function Footer() {
         </motion.div>
 
         {/* Contact Info */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-white/10">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#C5A059' }}>
-              <Key className="w-4 h-4 text-white" />
+        <div className="pt-12 border-t border-white/10">
+          <div className="grid md:grid-cols-3 gap-8 items-center">
+            {/* Logo */}
+            <div className="flex justify-center md:justify-start">
+              <img 
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/2658bacb6_Logo_FullColor.png"
+                alt="DreamPathPrep"
+                className="h-12 w-auto brightness-0 invert"
+              />
             </div>
-            <span className="text-white font-semibold">DreamPathPrep</span>
-          </div>
 
-          {/* Contact Details */}
-          <div className="flex flex-col sm:flex-row items-center gap-6 text-white/70 text-sm">
-            <a href="mailto:KMK@dreampathprep.com" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Mail className="w-4 h-4" />
-              KMK@dreampathprep.com
-            </a>
-            <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
-              Dublin, Ohio
-            </span>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex items-center gap-4">
-            {[Linkedin, Instagram, Facebook].map((Icon, idx) => (
-              <a
-                key={idx}
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"
-              >
-                <Icon className="w-5 h-5" />
+            {/* Contact Details */}
+            <div className="flex flex-col items-center gap-4 text-white/70 text-sm">
+              <a href="mailto:KMK@dreampathprep.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                <Mail className="w-4 h-4" />
+                KMK@dreampathprep.com
               </a>
-            ))}
-          </div>
-        </div>
+              <span className="flex items-center gap-2">
+                <MapPin className="w-4 h-4" />
+                Dublin, Ohio
+              </span>
+            </div>
 
-        {/* Copyright */}
-        <div className="text-center mt-8 text-white/40 text-sm">
-          © {new Date().getFullYear()} DreamPathPrep. All rights reserved.
+            {/* Social Icons */}
+            <div className="flex items-center justify-center md:justify-end gap-3">
+              {[Linkedin, Instagram, Facebook].map((Icon, idx) => (
+                <a
+                  key={idx}
+                  href="#"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="text-center mt-8 text-white/40 text-sm">
+            © {new Date().getFullYear()} DreamPathPrep. All rights reserved.
+          </div>
         </div>
       </div>
     </footer>

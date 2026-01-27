@@ -29,7 +29,7 @@ export default function Team() {
   const [hoveredIdx, setHoveredIdx] = useState(null);
 
   return (
-    <section id="team" className="py-24 md:py-32" style={{ backgroundColor: '#F9F8F4' }}>
+    <section id="team" className="py-24 md:py-32 border-t-2 border-dotted" style={{ backgroundColor: '#F9F8F4', borderColor: '#C5A059' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -61,7 +61,7 @@ export default function Team() {
               onMouseEnter={() => setHoveredIdx(idx)}
               onMouseLeave={() => setHoveredIdx(null)}
             >
-              <div className="relative overflow-hidden rounded-2xl aspect-[3/4]">
+              <div className="relative overflow-hidden rounded-2xl aspect-[3/4] bg-gray-100">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -69,32 +69,41 @@ export default function Team() {
                 />
                 
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F] via-[#0A192F]/40 to-transparent" />
+                
+                {/* Default Info - Always visible */}
+                <div className="absolute bottom-0 inset-x-0 p-6 z-10 pointer-events-none">
+                  <motion.div
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: hoveredIdx === idx ? 0 : 1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <h3 className="text-white text-xl font-bold mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
+                      {member.name}
+                    </h3>
+                    <p className="text-white/70 text-sm">{member.role}</p>
+                  </motion.div>
+                </div>
                 
                 {/* Bio Card - Slides up on hover */}
                 <motion.div
                   initial={{ y: '100%' }}
                   animate={{ y: hoveredIdx === idx ? '0%' : '100%' }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
-                  className="absolute inset-x-0 bottom-0 p-6"
-                  style={{ backgroundColor: 'rgba(10, 25, 47, 0.95)' }}
+                  className="absolute inset-0 flex flex-col justify-end p-6 z-20"
+                  style={{ backgroundColor: 'rgba(10, 25, 47, 0.97)' }}
                 >
-                  <p className="text-white/90 text-sm leading-relaxed mb-3">{member.bio}</p>
+                  <h3 className="text-white text-xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {member.name}
+                  </h3>
                   <div 
-                    className="text-sm font-semibold"
+                    className="text-sm font-semibold mb-3"
                     style={{ color: '#C5A059' }}
                   >
                     {member.expertise}
                   </div>
+                  <p className="text-white/90 text-sm leading-relaxed">{member.bio}</p>
                 </motion.div>
-                
-                {/* Default Info */}
-                <div className="absolute bottom-0 inset-x-0 p-6">
-                  <h3 className="text-white text-xl font-bold mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    {member.name}
-                  </h3>
-                  <p className="text-white/70 text-sm">{member.role}</p>
-                </div>
               </div>
             </motion.div>
           ))}

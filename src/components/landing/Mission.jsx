@@ -4,7 +4,7 @@ import { GraduationCap, Microscope, Target, Sparkles } from 'lucide-react';
 
 export default function Mission() {
   return (
-    <section id="mission" className="py-24 md:py-32" style={{ backgroundColor: '#F9F8F4' }}>
+    <section id="mission" className="py-24 md:py-32 border-t-2 border-dotted" style={{ backgroundColor: '#F9F8F4', borderColor: '#C5A059' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

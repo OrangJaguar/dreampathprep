@@ -30,11 +30,12 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: '#C5A059' }}>
-              <Key className="w-4 h-4 text-white" />
-            </div>
-            <span className="text-white font-semibold text-lg tracking-wide">DreamPathPrep</span>
+          <div className="flex items-center">
+            <img 
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/2658bacb6_Logo_FullColor.png"
+              alt="DreamPathPrep"
+              className="h-10 md:h-12 w-auto"
+            />
           </div>
 
           {/* Desktop Nav */}
