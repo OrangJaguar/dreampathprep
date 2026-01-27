@@ -1,42 +1,44 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
-const universityLogos = [
-  { name: 'Harvard', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cc/Harvard_University_logo.svg' },
-  { name: 'Duke', url: 'https://upload.wikimedia.org/wikipedia/commons/0/04/Duke_University_logo.svg' },
-  { name: 'NYU', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/New_York_University_Logo.svg' },
-  { name: 'UPenn', url: 'https://upload.wikimedia.org/wikipedia/commons/9/92/UPenn_logo.svg' },
-  { name: 'Stanford', url: 'https://upload.wikimedia.org/wikipedia/commons/4/44/Stanford_University_Logo.svg' },
-  { name: 'MIT', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg' },
-  { name: 'Yale', url: 'https://upload.wikimedia.org/wikipedia/commons/0/07/Yale_University_logo.svg' },
-  { name: 'Princeton', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Princeton_seal.svg' },
-  { name: 'Columbia', url: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Columbia_University_logo.svg' },
-  { name: 'Cornell', url: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Cornell_University_logo.svg' },
+const universities = [
+  { name: "Harvard", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Harvard_University_coat_of_arms.svg/800px-Harvard_University_coat_of_arms.svg.png" },
+  { name: "Duke", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Duke_Blue_Devils_logo.svg/800px-Duke_Blue_Devils_logo.svg.png" },
+  { name: "Cornell", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Cornell_University_seal.svg/800px-Cornell_University_seal.svg.png" },
+  { name: "Georgia Tech", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Georgia_Tech_seal.svg/800px-Georgia_Tech_seal.svg.png" },
+  { name: "Stanford", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Seal_of_Leland_Stanford_Junior_University.svg/800px-Seal_of_Leland_Stanford_Junior_University.svg.png" },
+  { name: "MIT", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/800px-MIT_logo.svg.png" },
+  { name: "Yale", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Yale_University_Shield_1.svg/800px-Yale_University_Shield_1.svg.png" },
+  { name: "Princeton", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Princeton_seal.svg/800px-Princeton_seal.svg.png" },
 ];
 
 export default function LogoTicker() {
+  const duplicatedLogos = [...universities, ...universities];
+
   return (
-    <section className="py-10 bg-white overflow-hidden border-y" style={{ borderColor: 'rgba(197, 160, 89, 0.2)' }}>
+    <section className="bg-[#F9F8F4] py-12 border-y border-[#0A192F]/10 overflow-hidden">
       <div className="relative">
-        <motion.div
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-          className="flex gap-12 md:gap-16 whitespace-nowrap"
-        >
-          {[...universityLogos, ...universityLogos].map((uni, idx) => (
-            <div
-              key={idx}
-              className="flex items-center justify-center flex-shrink-0 h-12 w-32 grayscale opacity-40"
-            >
-              <img 
-                src={uni.url} 
-                alt={uni.name}
-                className="max-h-full max-w-full object-contain"
-              />
+        <div className="flex animate-scroll">
+          {duplicatedLogos.map((uni, index) => (
+            <div key={`${uni.name}-${index}`} className="flex-shrink-0 mx-8 md:mx-12 flex items-center justify-center">
+              <div className="h-16 w-16 md:h-20 md:w-20 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
+                <img src={uni.logo} alt={uni.name} className="max-h-full max-w-full object-contain" />
+              </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
+      <style jsx>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 }
