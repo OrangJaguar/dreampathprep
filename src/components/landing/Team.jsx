@@ -6,21 +6,21 @@ const team = [
     name: 'Khushbu Mishra, PhD',
     role: 'Co-Founder',
     expertise: 'Narrative Strategy & Essay Excellence',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/1fa6e1d71_ScreenShot2026-01-27at35033PM.png',
     bio: 'Former Stanford admissions reader with expertise in crafting compelling personal narratives.'
   },
   {
     name: 'Komal Das, PhD',
     role: 'Co-Founder',
     expertise: 'Academic Planning & STEM Focus',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80',
+    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/11b7e2f98_ScreenShot2026-01-27at35012PM.png',
     bio: 'Research scientist turned education strategist, specializing in STEM pathways.'
   },
   {
     name: 'Mridula Gupta, PhD',
     role: 'Co-Founder',
     expertise: 'Financial Aid & School Selection',
-    image: 'https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=400&q=80',
+    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/236fe7f4d_ScreenShot2026-01-27at35024PM.png',
     bio: 'Expert in maximizing financial aid packages and strategic school fit analysis.'
   }
 ];

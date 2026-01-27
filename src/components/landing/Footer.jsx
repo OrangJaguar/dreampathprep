@@ -67,7 +67,7 @@ export default function Footer() {
             </div>
             
             <p className="text-xs text-gray-400">
-              30-minute strategy call with a PhD consultant
+              15-minute strategy call with a PhD consultant
             </p>
           </div>
         </motion.div>
