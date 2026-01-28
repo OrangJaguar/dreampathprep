@@ -23,6 +23,7 @@ export default function Navigation() {
     { label: 'The Team', id: 'team' },
     { label: 'Services', id: 'services' },
     { label: 'Results', id: 'testimonial' },
+    { label: 'Contact Us', id: 'footer' },
   ];
 
   return (
