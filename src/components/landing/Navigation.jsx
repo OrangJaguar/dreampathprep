@@ -53,7 +53,7 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* Desktop CTA Button */}
           <div className="hidden md:block">
             <Button
               onClick={() => scrollTo('footer')}
@@ -64,13 +64,26 @@ export default function Navigation() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Actions */}
+          <div className="flex md:hidden items-center gap-3">
+            {/* Mobile Book Now Button */}
+            <Button
+              onClick={() => scrollTo('footer')}
+              size="sm"
+              className="rounded-full px-4 text-white font-medium text-xs"
+              style={{ backgroundColor: '#3E5C76' }}
+            >
+              Book Now
+            </Button>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="text-white p-2"
+              onClick={() => setMobileOpen(!mobileOpen)}
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
