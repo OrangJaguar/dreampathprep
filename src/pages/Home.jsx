@@ -13,12 +13,23 @@ import Footer from '@/components/landing/Footer';
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
+  const [hasSeenIntro, setHasSeenIntro] = useState(false);
+
+  useEffect(() => {
+    const seenIntro = localStorage.getItem('dpp_intro_seen');
+    if (seenIntro) {
+      setShowIntro(false);
+      setHasSeenIntro(true);
+    }
+  }, []);
 
   const handleIntroComplete = () => {
+    localStorage.setItem('dpp_intro_seen', 'true');
     setShowIntro(false);
+    setHasSeenIntro(true);
   };
 
-  if (showIntro) {
+  if (showIntro && !hasSeenIntro) {
     return <IntroAnimation onComplete={handleIntroComplete} />;
   }
 
