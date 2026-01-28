@@ -49,21 +49,15 @@ export default function Footer() {
               Choose a time that works for you. Our strategy sessions are complimentary and obligation-free.
             </p>
             
-            {/* Calendly Button/Widget Placeholder */}
-            <div 
-              className="border-2 border-dashed rounded-xl p-8 mb-4"
-              style={{ borderColor: '#C5A059' }}
-            >
-              <p className="text-gray-500 text-sm mb-4">Calendly Widget Integration</p>
-              <a
-                href="https://calendly.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-full text-white font-semibold transition-all hover:scale-105 hover:shadow-lg"
-                style={{ backgroundColor: '#3E5C76' }}
-              >
-                Book Your Session
-              </a>
+            {/* Calendly Embed */}
+            <div className="mb-4">
+              <iframe
+                src="https://calendly.com/kmk-dreampathprep/30min?embed_domain=base44.app&embed_type=Inline&hide_gdpr_banner=1"
+                width="100%"
+                height="700"
+                frameBorder="0"
+                className="rounded-xl"
+              />
             </div>
             
             <p className="text-xs text-gray-400">
@@ -95,15 +89,22 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex items-center justify-center md:justify-end gap-3">
-              {[Instagram, Facebook, MessageCircle].map((Icon, idx) => (
-                <a
-                  key={idx}
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"
-                >
-                  <Icon className="w-6 h-6" />
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/dreampathprep"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"
+              >
+                <Instagram className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.facebook.com/people/Dreampathprep/61582060985912/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"
+              >
+                <Facebook className="w-6 h-6" />
+              </a>
             </div>
           </div>
 
