@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import IntroAnimation from '@/components/landing/IntroAnimation';
 import Navigation from '@/components/landing/Navigation';
 import Hero from '@/components/landing/Hero';
 import LogoTicker from '@/components/landing/LogoTicker';
@@ -11,6 +12,27 @@ import Diagnostic from '@/components/landing/Diagnostic';
 import Footer from '@/components/landing/Footer';
 
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(true);
+  const [hasSeenIntro, setHasSeenIntro] = useState(false);
+
+  useEffect(() => {
+    const seenIntro = localStorage.getItem('dpp_intro_seen');
+    if (seenIntro) {
+      setShowIntro(false);
+      setHasSeenIntro(true);
+    }
+  }, []);
+
+  const handleIntroComplete = () => {
+    localStorage.setItem('dpp_intro_seen', 'true');
+    setShowIntro(false);
+    setHasSeenIntro(true);
+  };
+
+  if (showIntro && !hasSeenIntro) {
+    return <IntroAnimation onComplete={handleIntroComplete} />;
+  }
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#F9F8F4' }}>
       <style>
