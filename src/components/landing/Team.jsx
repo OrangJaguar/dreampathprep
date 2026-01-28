@@ -6,7 +6,7 @@ const team = [
     name: 'Khushbu Mishra, PhD',
     role: 'Co-Founder',
     expertise: 'Narrative Strategy & Essay Excellence',
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/1fa6e1d71_ScreenShot2026-01-27at35033PM.png',
+    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/0f5c0b244_Mishra_Photo.jpg',
     bio: 'Former Stanford admissions reader with expertise in crafting compelling personal narratives.'
   },
   {
