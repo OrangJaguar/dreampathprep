@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Key, Linkedin, Instagram, Facebook } from 'lucide-react';
+import { Mail, Key, Instagram, Facebook, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -67,7 +67,7 @@ export default function Footer() {
             </div>
             
             <p className="text-xs text-gray-400">
-              15-minute strategy call with a PhD consultant
+              30-minute strategy call with a PhD consultant
             </p>
           </div>
         </motion.div>
@@ -91,21 +91,17 @@ export default function Footer() {
                 <Mail className="w-4 h-4" />
                 KMK@dreampathprep.com
               </a>
-              <span className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                Dublin, Ohio
-              </span>
             </div>
 
             {/* Social Icons */}
             <div className="flex items-center justify-center md:justify-end gap-3">
-              {[Linkedin, Instagram, Facebook].map((Icon, idx) => (
+              {[Instagram, Facebook, MessageCircle].map((Icon, idx) => (
                 <a
                   key={idx}
                   href="#"
-                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"
+                  className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-6 h-6" />
                 </a>
               ))}
             </div>

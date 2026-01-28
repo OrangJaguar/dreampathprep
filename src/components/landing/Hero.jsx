@@ -48,7 +48,7 @@ export default function Hero() {
           >
             <AlertTriangle className="w-5 h-5" style={{ color: '#C5A059' }} />
             <span className="font-semibold text-base" style={{ color: '#C5A059' }}>
-              Class of 2026: Only 10 Spots Available
+              Class of 2027: Limited Spots Available
             </span>
           </motion.div>
 
