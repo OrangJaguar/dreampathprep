@@ -1,35 +1,50 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react';
+import { CheckCircle2, ArrowRight, ArrowLeft, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+// NEW STRATEGIC QUESTIONS (Holistic & Career Focused)
 const questions = [
   {
-    question: 'What grade is your student currently in?',
-    options: ['9th Grade', '10th Grade', '11th Grade', '12th Grade']
+    id: 'grade',
+    question: 'First, what grade is your student currently in?',
+    options: ['8th - 9th Grade (Early Planning)', '10th Grade (Foundation Year)', '11th Grade (Prime Time)', '12th Grade (Application Crunch)']
   },
   {
-    question: 'Do you have a balanced list of "Reach" vs "Financial Fit" schools?',
-    options: ['Yes, we have a clear list', 'Working on it', 'Not yet', 'Not sure where to start']
+    id: 'career',
+    question: 'How clear is your student on their future major or career path?',
+    options: ['They have a specific career/major in mind', 'They have a general area of interest (STEM, Arts, etc.)', 'They are undecided/exploring', 'We are worried they are choosing the wrong path']
   },
   {
-    question: 'Does your student have a compelling leadership narrative?',
-    options: ['Yes, very strong', 'Some leadership roles', 'Limited experience', 'No, need help developing one']
+    id: 'academics',
+    question: 'How would you describe their current course load and academic performance?',
+    options: ['Thriving in AP/IB/Honors courses', 'Doing well, but could be challenged more', 'Struggling to balance grades and activities', 'We need help selecting the right courses for next year']
   },
   {
-    question: 'Is your testing strategy aligned with your target schools?',
-    options: ['Yes, all set', 'Partially planned', 'Still figuring it out', 'Haven\'t started planning']
+    id: 'narrative',
+    question: 'Beyond grades, does your student have a signature "Story" or passion project?',
+    options: ['Yes, they have a clear standout narrative', 'They participate in many clubs, but no clear "theme"', 'Limited extracurricular involvement', 'Not sure what colleges are looking for']
   },
   {
-    question: 'How prepared are you for college essays?',
-    options: ['Very prepared', 'Somewhat prepared', 'Just starting', 'Need significant help']
+    id: 'financial',
+    question: 'How confident are you in finding colleges that are both an "Academic" AND "Financial" fit?',
+    options: ['Very confident', 'We have a list, but unsure about costs/aid', 'Worried about the ROI of college tuition', 'We haven\'t started discussing the budget yet']
   }
 ];
 
 export default function Diagnostic() {
   const [currentStep, setCurrentStep] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [showForm, setShowForm] = useState(false); // New State for Lead Capture
   const [showResult, setShowResult] = useState(false);
+  
+  // LEAD CAPTURE STATE
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    school: ''
+  });
 
   const handleAnswer = (optionIdx) => {
     setAnswers(prev => ({ ...prev, [currentStep]: optionIdx }));
@@ -39,7 +54,8 @@ export default function Diagnostic() {
     if (currentStep < questions.length - 1) {
       setCurrentStep(prev => prev + 1);
     } else {
-      setShowResult(true);
+      // INSTEAD OF SHOWING RESULT, SHOW FORM
+      setShowForm(true);
     }
   };
 
@@ -49,6 +65,15 @@ export default function Diagnostic() {
     }
   };
 
+  // HANDLE FORM SUBMISSION
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    // HERE YOU WOULD TYPICALLY SEND DATA TO BACKEND/GOOGLE SHEETS
+    console.log("Lead Captured:", formData, "Answers:", answers);
+    setShowForm(false);
+    setShowResult(true);
+  };
+
   const scrollToFooter = () => {
     document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -56,11 +81,32 @@ export default function Diagnostic() {
   const resetQuiz = () => {
     setCurrentStep(0);
     setAnswers({});
+    setShowForm(false);
     setShowResult(false);
+    setFormData({ name: '', email: '', phone: '', school: '' });
+  };
+
+  // DYNAMIC RESULT TEXT BASED ON GRADE LEVEL (Q1)
+  const getResultContent = () => {
+    const gradeAnswer = answers[0]; // Index of the grade answer
+    
+    if (gradeAnswer <= 1) { // 9th or 10th Grade
+      return {
+        title: "The 'Foundation' Phase",
+        text: "Your student is in the critical window for discovery. Right now, success isn't about stressing over applications—it's about strategic course selection and exploring authentic career interests. Our Early Strategy approach can help you build a profile that feels natural, not forced."
+      };
+    } else { // 11th or 12th Grade
+      return {
+        title: "The 'Execution' Phase",
+        text: "The timeline is accelerating. Admissions officers are looking for a cohesive narrative that connects your student's past achievements to their future career potential. It is time to refine the college list, focus on 'Fit' over 'Prestige,' and craft essays that stand out."
+      };
+    }
   };
 
   const progress = ((currentStep + 1) / questions.length) * 100;
+  const resultContent = getResultContent();
 
+  // --- RENDER: RESULTS PAGE ---
   if (showResult) {
     return (
       <section className="py-24 md:py-32 border-t-2 border-dotted" style={{ backgroundColor: '#F9F8F4', borderColor: '#C5A059' }}>
@@ -83,11 +129,11 @@ export default function Diagnostic() {
               className="text-3xl md:text-4xl font-bold mb-4"
               style={{ color: '#0A192F', fontFamily: "'Playfair Display', serif" }}
             >
-              Don't Leave It to Chance
+              {resultContent.title}
             </h3>
             
             <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-              Most families discover gaps in their strategy too late. Let our PhD-led team identify opportunities before deadlines approach and create a winning strategy tailored to your student.
+              {resultContent.text}
             </p>
             
             <Button
@@ -96,7 +142,7 @@ export default function Diagnostic() {
               className="w-full rounded-full text-white font-semibold transition-all hover:scale-[1.02] hover:shadow-xl mb-4"
               style={{ backgroundColor: '#3E5C76' }}
             >
-              Get Your Free Strategy Session
+              Book Your Free Strategy Session
             </Button>
             
             <button
@@ -111,6 +157,85 @@ export default function Diagnostic() {
     );
   }
 
+  // --- RENDER: LEAD CAPTURE FORM ---
+  if (showForm) {
+    return (
+      <section className="py-24 md:py-32 border-t-2 border-dotted" style={{ backgroundColor: '#F9F8F4', borderColor: '#C5A059' }}>
+        <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
+          >
+            <div className="text-center mb-6">
+              <div className="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                 <Lock className="w-6 h-6 text-[#0A192F]" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#0A192F]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Unlock Your Results
+              </h3>
+              <p className="text-gray-500 text-sm mt-2">
+                Enter your details to generate your personalized strategy profile.
+              </p>
+            </div>
+
+            <form onSubmit={handleFormSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Parent Name</label>
+                <input 
+                  required
+                  type="text"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C5A059] focus:outline-none"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <input 
+                  required
+                  type="email"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C5A059] focus:outline-none"
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                <input 
+                  required
+                  type="tel"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C5A059] focus:outline-none"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">High School & District</label>
+                <input 
+                  required
+                  type="text"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C5A059] focus:outline-none"
+                  value={formData.school}
+                  onChange={(e) => setFormData({...formData, school: e.target.value})}
+                />
+              </div>
+              
+              <Button
+                type="submit"
+                className="w-full py-6 rounded-lg text-white font-semibold text-lg mt-4 transition-all hover:opacity-90"
+                style={{ backgroundColor: '#3E5C76' }}
+              >
+                View Assessment
+              </Button>
+            </form>
+          </motion.div>
+        </div>
+      </section>
+    )
+  }
+
+  // --- RENDER: QUESTIONS ---
   return (
     <section className="py-24 md:py-32 border-t-2 border-dotted" style={{ backgroundColor: '#F9F8F4', borderColor: '#C5A059' }}>
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,7 +253,7 @@ export default function Diagnostic() {
             Is Your Student on Track?
           </h2>
           <p className="text-gray-600 text-lg">
-            Take our quick assessment to see where you stand
+            Take our holistic assessment to find gaps in your strategy.
           </p>
         </motion.div>
 
@@ -162,7 +287,7 @@ export default function Diagnostic() {
 
           {/* Question */}
           <h3 
-            className="text-xl md:text-2xl font-bold mb-6"
+            className="text-xl md:text-2xl font-bold mb-6 leading-tight"
             style={{ color: '#0A192F', fontFamily: "'Playfair Display', serif" }}
           >
             {questions[currentStep].question}
@@ -215,7 +340,7 @@ export default function Diagnostic() {
               className="flex-1 rounded-full text-white font-semibold transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ backgroundColor: '#3E5C76' }}
             >
-              {currentStep === questions.length - 1 ? 'See Results' : 'Next'}
+              {currentStep === questions.length - 1 ? 'Analyze & Unlock' : 'Next'}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
