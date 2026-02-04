@@ -58,7 +58,8 @@ export default function Navigation() {
               className="rounded-full px-6 text-white font-medium transition-all hover:scale-105 hover:shadow-lg"
               style={{ backgroundColor: '#3E5C76' }}
             >
-              Book Strategy Call
+              <span className="hidden lg:inline">Book Strategy Call</span>
+              <span className="lg:hidden">Book Call</span>
             </Button>
           </div>
 
@@ -68,10 +69,10 @@ export default function Navigation() {
             <Button
               onClick={() => scrollTo('footer')}
               size="sm"
-              className="rounded-full px-4 text-white font-medium text-xs"
+              className="rounded-full px-3 text-white font-medium text-xs"
               style={{ backgroundColor: '#3E5C76' }}
             >
-              Book Strategy Call
+              Book Call
             </Button>
 
             {/* Mobile Menu Button */}
@@ -102,7 +103,7 @@ export default function Navigation() {
                 className="rounded-full px-6 text-white font-medium mt-2 w-fit"
                 style={{ backgroundColor: '#3E5C76' }}
               >
-                Book Strategy Call
+                Book Call
               </Button>
 
               {/* Follow Us Section - Mobile Only */}
