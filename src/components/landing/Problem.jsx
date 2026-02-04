@@ -20,8 +20,8 @@ export default function Problem() {
             The Admissions Landscape Has Changed
           </h2>
           <p className="text-gray-600 text-lg md:text-xl leading-relaxed">
-            Acceptance rates are at historic lows. Without a strategic narrative, even brilliant students get lost. 
-            <span className="font-semibold" style={{ color: '#0A192F' }}> You don't just need a tutor; you need a strategist.</span>
+            Application volumes are at record highs, and good grades are no longer enough. The process is complex, but it doesn't have to be overwhelming.{' '}
+            <span className="font-semibold" style={{ color: '#0A192F' }}>You don't just need a tutor; you need a strategist.</span>
           </p>
         </motion.div>
 
@@ -29,21 +29,21 @@ export default function Problem() {
           {[
             {
               icon: TrendingDown,
-              stat: '3.4%',
-              label: 'Harvard Acceptance Rate',
-              desc: 'Down from 10% a decade ago'
+              stat: '19%',
+              label: 'Average Acceptance Rate',
+              desc: 'At top 100 U.S. universities'
             },
             {
               icon: FileStack,
-              stat: '50K+',
-              label: 'Applications per School',
-              desc: 'Record-breaking application volumes'
+              stat: '40%',
+              label: 'Increase in Applications',
+              desc: 'Over the past five years'
             },
             {
               icon: Users,
-              stat: '70%',
-              label: 'Use Professional Help',
-              desc: 'Of admitted Ivy League students'
+              stat: '90%',
+              label: 'Need More Than Grades',
+              desc: 'Strong ECs and essays are essential'
             }
           ].map((item, idx) => (
             <motion.div

@@ -17,8 +17,11 @@ export default function Mission() {
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
             style={{ color: '#0A192F', fontFamily: "'Playfair Display', serif" }}
           >
-            Empowering Dreams, One Student at a Time
+            Our Mission
           </h2>
+          <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+            We foster confidence, clear understanding, and purposeful direction aligned to each student's unique strengths. We don't just "fix" applications; we lay a strong foundation for academic and personal growth.
+          </p>
         </motion.div>
 
         <motion.div
@@ -26,7 +29,7 @@ export default function Mission() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto mt-12"
         >
           {/* PhD Advantage Box */}
           <div 
@@ -49,7 +52,7 @@ export default function Mission() {
                   The PhD Advantage
                 </h3>
                 <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                  We bring scientific rigor to admissions. Led by three PhDs, we foster confidence and purpose aligned to your child's unique strengths. Our methodology isn't guesswork—it's research-backed strategy.
+                  Our methodology isn't guesswork—it's research-backed strategy. Led by three PhDs, we offer deep knowledge of academic systems and career pathways. We guide students to success not just in admissions, but in their future careers.
                 </p>
                 
                 <div className="grid sm:grid-cols-3 gap-6">
