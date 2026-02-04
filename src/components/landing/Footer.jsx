@@ -110,7 +110,8 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-center mt-8 text-white/40 text-sm">
-            © {new Date().getFullYear()} DreamPathPrep. All rights reserved.
+            <p>© {new Date().getFullYear()} DreamPathPrep. All rights reserved.</p>
+            <p className="mt-2 text-xs">Website Crafted by Sanskar Gupta</p>
           </div>
         </div>
       </div>
