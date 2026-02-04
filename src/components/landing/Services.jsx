@@ -25,7 +25,7 @@ const plans = [
         title: 'College List & Fit Analysis',
         subtitle: 'Early Research',
         icon: MapPin,
-        description: 'Data-driven research to find schools that match your student's academic goals, culture, and budget.'
+        description: 'Data-driven research to find schools that match your student\'s academic goals, culture, and budget.'
       }
     ]
   },
