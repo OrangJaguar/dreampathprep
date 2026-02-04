@@ -6,7 +6,7 @@ const testimonials = [
   {
     quote: "Our counselor's expertise made the process clear and achievable. She helped him craft a standout application that truly reflected who he is. And my son also got admission in OSU!",
     author: "Sheeta Ravi",
-    role: "Parent, Class of 2024"
+    role: "Parent"
   },
   {
     quote: "The personal and targeted feedback on my college application and essays helped me get admissions into my dream program, which led me to find a job in a top company.",
