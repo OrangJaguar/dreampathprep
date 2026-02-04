@@ -19,7 +19,7 @@ export default function Mission() {
           >
             Our Mission
           </h2>
-          <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+          <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
             We foster confidence, clear understanding, and purposeful direction aligned to each student's unique strengths. We don't just "fix" applications; we lay a strong foundation for academic and personal growth.
           </p>
         </motion.div>
@@ -29,7 +29,7 @@ export default function Mission() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto mt-12"
+          className="max-w-4xl mx-auto"
         >
           {/* PhD Advantage Box */}
           <div 
