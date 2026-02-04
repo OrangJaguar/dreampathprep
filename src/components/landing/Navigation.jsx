@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Key, Menu, X } from 'lucide-react';
+import { Menu, X, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Navigation() {
@@ -18,11 +18,9 @@ export default function Navigation() {
   };
 
   const navLinks = [
-    { label: 'The Problem', id: 'problem' },
-    { label: 'Our Mission', id: 'mission' },
-    { label: 'The Team', id: 'team' },
+    { label: 'About Us', id: 'team' },
     { label: 'Services', id: 'services' },
-    { label: 'Results', id: 'testimonial' },
+    { label: 'Student Success', id: 'testimonial' },
     { label: 'Contact Us', id: 'footer' },
   ];
 
@@ -31,14 +29,14 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center gap-2.5">
+          <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
             <img 
               src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/82f700ed7_image-removebg-preview8.png"
               alt="DreamPathPrep Icon"
               className="h-10 md:h-12 w-auto"
             />
             <span className="text-white font-semibold text-base md:text-lg tracking-wide">DreamPathPrep</span>
-          </div>
+          </button>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -60,7 +58,7 @@ export default function Navigation() {
               className="rounded-full px-6 text-white font-medium transition-all hover:scale-105 hover:shadow-lg"
               style={{ backgroundColor: '#3E5C76' }}
             >
-              Book Free Consultation
+              Book Strategy Call
             </Button>
           </div>
 
@@ -73,7 +71,7 @@ export default function Navigation() {
               className="rounded-full px-4 text-white font-medium text-xs"
               style={{ backgroundColor: '#3E5C76' }}
             >
-              Book Now
+              Book Strategy Call
             </Button>
 
             {/* Mobile Menu Button */}
@@ -104,8 +102,39 @@ export default function Navigation() {
                 className="rounded-full px-6 text-white font-medium mt-2 w-fit"
                 style={{ backgroundColor: '#3E5C76' }}
               >
-                Book Free Consultation
+                Book Strategy Call
               </Button>
+
+              {/* Follow Us Section - Mobile Only */}
+              <div className="pt-6 border-t border-white/10 mt-4">
+                <p className="text-white/60 text-sm font-medium mb-4">Follow Us</p>
+                <div className="flex gap-4">
+                  <a
+                    href="https://www.instagram.com/dreampathprep"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"
+                  >
+                    <Instagram className="w-6 h-6" />
+                  </a>
+                  <a
+                    href="https://www.facebook.com/people/Dreampathprep/61582060985912/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"
+                  >
+                    <Facebook className="w-6 h-6" />
+                  </a>
+                  <a
+                    href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"
+                  >
+                    <MessageCircle className="w-6 h-6" />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         )}
