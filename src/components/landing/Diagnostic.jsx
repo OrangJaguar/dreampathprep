@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, ArrowRight, ArrowLeft, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { base44 } from '@/api/base44Client';
 
 // NEW STRATEGIC QUESTIONS (Holistic & Career Focused)
 const questions = [
@@ -66,12 +67,31 @@ export default function Diagnostic() {
   };
 
   // HANDLE FORM SUBMISSION
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // HERE YOU WOULD TYPICALLY SEND DATA TO BACKEND/GOOGLE SHEETS
-    console.log("Lead Captured:", formData, "Answers:", answers);
-    setShowForm(false);
-    setShowResult(true);
+    
+    try {
+      // Map answers to readable text
+      const mappedAnswers = {
+        grade: questions[0].options[answers[0]],
+        career: questions[1].options[answers[1]],
+        academics: questions[2].options[answers[2]],
+        narrative: questions[3].options[answers[3]],
+        financial: questions[4].options[answers[4]]
+      };
+
+      // Submit to backend (saves to database + Google Sheets)
+      await base44.functions.invoke('submitQuizResponse', {
+        formData,
+        answers: mappedAnswers
+      });
+
+      setShowForm(false);
+      setShowResult(true);
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('There was an error submitting your response. Please try again.');
+    }
   };
 
   const scrollToFooter = () => {
