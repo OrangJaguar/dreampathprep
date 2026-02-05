@@ -20,7 +20,7 @@ const team = [
     name: 'Mridula Gupta, PhD',
     role: 'Co-Founder',
     expertise: 'Financial Aid & School Selection',
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/236fe7f4d_ScreenShot2026-01-27at35024PM.png',
+    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/92502348c_Mridula.jpg',
     bio: 'Expert in maximizing financial aid packages and strategic school fit analysis.'
   }
 ];
