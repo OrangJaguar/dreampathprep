@@ -38,6 +38,10 @@ Deno.serve(async (req) => {
 
         // Append to Google Sheet
         const sheetId = Deno.env.get("GOOGLE_SHEET_ID");
+        console.log("Sheet ID:", sheetId);
+        console.log("Access Token:", accessToken ? "Present" : "Missing");
+        console.log("Row Data:", rowData);
+        
         const sheetResponse = await fetch(
             `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Responses!A:J:append?valueInputOption=RAW`,
             {
@@ -52,13 +56,18 @@ Deno.serve(async (req) => {
             }
         );
 
+        console.log("Google Sheets Response Status:", sheetResponse.status);
+        const responseText = await sheetResponse.text();
+        console.log("Google Sheets Response:", responseText);
+
         if (!sheetResponse.ok) {
-            throw new Error(`Google Sheets error: ${await sheetResponse.text()}`);
+            throw new Error(`Google Sheets error: ${responseText}`);
         }
 
         return Response.json({ 
             success: true,
-            id: quizResponse.id 
+            id: quizResponse.id,
+            sheetResponse: responseText
         });
     } catch (error) {
         return Response.json({ 
