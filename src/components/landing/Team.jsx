@@ -5,23 +5,23 @@ const team = [
   {
     name: 'Khushbu Mishra, PhD',
     role: 'Co-Founder',
-    expertise: 'Narrative Strategy & Essay Excellence',
+    expertise: 'Narrative & Essay Strategy',
     image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/0f5c0b244_Mishra_Photo.jpg',
-    bio: 'Former Stanford admissions reader with expertise in crafting compelling personal narratives.'
+    bio: 'Expert in translating student experiences into compelling personal statements and cohesive application stories that stand out.'
   },
   {
     name: 'Komal Das, PhD',
     role: 'Co-Founder',
-    expertise: 'Academic Planning & STEM Focus',
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/11b7e2f98_ScreenShot2026-01-27at35012PM.png',
-    bio: 'Research scientist turned education strategist, specializing in STEM pathways.'
+    expertise: 'Strategic Planning & Leadership',
+    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/92f0e6519_IMG_6491.jpeg',
+    bio: 'Specializes in early academic roadmapping and building the high-impact leadership profiles that elite colleges demand.'
   },
   {
     name: 'Mridula Gupta, PhD',
     role: 'Co-Founder',
-    expertise: 'Financial Aid & School Selection',
+    expertise: 'School Fit & Financial Aid',
     image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/92502348c_Mridula.jpg',
-    bio: 'Expert in maximizing financial aid packages and strategic school fit analysis.'
+    bio: 'Focuses on data-driven college list creation and maximizing scholarship opportunities to ensure the perfect academic and financial match.'
   }
 ];
 
@@ -65,7 +65,7 @@ export default function Team() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                 />
                 
                 {/* Gradient Overlay */}
