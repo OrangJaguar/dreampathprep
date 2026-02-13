@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { Menu, X, Instagram, Facebook, MessageCircle, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function Navigation() {
@@ -59,15 +59,16 @@ export default function Navigation() {
             {navLinks.map((link) => (
               link.isDropdown ? (
                 <div key={link.label} className="relative group">
-                  <button className="text-white/80 hover:text-white text-sm font-medium transition-colors">
+                  <button className="text-white/80 hover:text-white text-sm font-medium transition-colors flex items-center gap-1">
                     {link.label}
+                    <ChevronDown className="w-4 h-4" />
                   </button>
-                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="absolute top-full left-0 mt-2 w-48 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50" style={{ backgroundColor: '#0A192F' }}>
                     {link.items.map((item) => (
                       <button
                         key={item.label}
                         onClick={() => scrollTo(item.id)}
-                        className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg transition-colors"
+                        className="block w-full text-left px-4 py-3 text-xs text-white/80 hover:text-white hover:bg-white/10 first:rounded-t-lg last:rounded-b-lg transition-colors"
                       >
                         {item.label}
                       </button>
