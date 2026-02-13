@@ -20,7 +20,7 @@ export default function Mission() {
             Our Mission
           </h2>
           <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
-            We foster confidence, clear understanding, and purposeful direction aligned to each student's unique strengths. We don't just "fix" applications; we lay a strong foundation for academic and personal growth.
+            We simplify the higher education journey through personalized guidance and strategic planning. Our experts help students discover their unique strengths and craft compelling applications to gain admission to institutions where they will thrive.
           </p>
         </motion.div>
 
