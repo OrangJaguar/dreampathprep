@@ -17,11 +17,27 @@ export default function Navigation() {
     setMobileOpen(false);
   };
 
+  const [dropdownOpen, setDropdownOpen] = useState(null);
+
   const navLinks = [
-    { label: 'About Us', id: 'team' },
+    { 
+      label: 'About Us', 
+      isDropdown: true,
+      items: [
+        { label: 'Mission', id: 'mission' },
+        { label: 'Meet the Team', id: 'team' }
+      ]
+    },
     { label: 'Services', id: 'services' },
-    { label: 'Student Success', id: 'testimonial' },
-    { label: 'Contact Us', id: 'footer' },
+    { label: 'Success Stories', id: 'testimonial' },
+    { 
+      label: 'Contact Us', 
+      isDropdown: true,
+      items: [
+        { label: 'Call', id: 'footer' },
+        { label: 'Socials', id: 'footer' }
+      ]
+    }
   ];
 
   return (
@@ -41,13 +57,32 @@ export default function Navigation() {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollTo(link.id)}
-                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
-              >
-                {link.label}
-              </button>
+              link.isDropdown ? (
+                <div key={link.label} className="relative group">
+                  <button className="text-white/80 hover:text-white text-sm font-medium transition-colors">
+                    {link.label}
+                  </button>
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    {link.items.map((item) => (
+                      <button
+                        key={item.label}
+                        onClick={() => scrollTo(item.id)}
+                        className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg transition-colors"
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <button
+                  key={link.id}
+                  onClick={() => scrollTo(link.id)}
+                  className="text-white/80 hover:text-white text-sm font-medium transition-colors"
+                >
+                  {link.label}
+                </button>
+              )
             ))}
           </div>
 
@@ -90,13 +125,37 @@ export default function Navigation() {
           <div className="md:hidden pb-6 border-t border-white/10 mt-2 pt-4">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollTo(link.id)}
-                  className="text-white/80 hover:text-white text-left font-medium transition-colors"
-                >
-                  {link.label}
-                </button>
+                link.isDropdown ? (
+                  <div key={link.label}>
+                    <button
+                      onClick={() => setDropdownOpen(dropdownOpen === link.label ? null : link.label)}
+                      className="text-white/80 hover:text-white text-left font-medium transition-colors w-full"
+                    >
+                      {link.label}
+                    </button>
+                    {dropdownOpen === link.label && (
+                      <div className="pl-4 mt-2 space-y-2">
+                        {link.items.map((item) => (
+                          <button
+                            key={item.label}
+                            onClick={() => scrollTo(item.id)}
+                            className="block w-full text-left text-sm text-white/70 hover:text-white transition-colors"
+                          >
+                            {item.label}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <button
+                    key={link.id}
+                    onClick={() => scrollTo(link.id)}
+                    className="text-white/80 hover:text-white text-left font-medium transition-colors"
+                  >
+                    {link.label}
+                  </button>
+                )
               ))}
               <Button
                 onClick={() => scrollTo('footer')}

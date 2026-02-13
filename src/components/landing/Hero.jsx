@@ -42,9 +42,7 @@ export default function Hero() {
             Empowering Dreams, One Student at a Time
           </p>
 
-          <p className="text-white/80 text-base md:text-lg leading-relaxed mb-10 max-w-3xl mx-auto">
-            We simplify the higher education journey through personalized guidance and strategic planning. Our experts help students discover their unique strengths and craft compelling applications to gain admission to institutions where they will thrive.
-          </p>
+
 
           {/* Scarcity Tag */}
           <motion.button
@@ -56,7 +54,7 @@ export default function Hero() {
           >
             <AlertTriangle className="w-5 h-5" style={{ color: '#C5A059' }} />
             <span className="font-semibold text-base" style={{ color: '#C5A059' }}>
-              Class of 2027: Limited Spots Available
+              Limited spots available
             </span>
           </motion.button>
 
