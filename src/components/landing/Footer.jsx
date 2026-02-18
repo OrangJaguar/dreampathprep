@@ -67,7 +67,7 @@ export default function Footer() {
         </motion.div>
 
         {/* Contact Info */}
-        <div className="pt-12 border-t border-white/10">
+        <div id="socials" className="pt-12 border-t border-white/10">
           <div className="grid md:grid-cols-3 gap-8 items-center">
             {/* Logo */}
             <div className="flex justify-center md:justify-start items-center">

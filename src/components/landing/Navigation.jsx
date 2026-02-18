@@ -35,7 +35,7 @@ export default function Navigation() {
       isDropdown: true,
       items: [
         { label: 'Call', id: 'footer' },
-        { label: 'Socials', id: 'footer' }
+        { label: 'Socials', id: 'socials' }
       ]
     }
   ];
