@@ -3,13 +3,6 @@ import { motion } from 'framer-motion';
 
 const team = [
   {
-    name: 'Khushbu Mishra, PhD',
-    role: 'Co-Founder',
-    expertise: 'Narrative & Essay Strategy',
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/0f5c0b244_Mishra_Photo.jpg',
-    bio: 'Expert in translating student experiences into compelling personal statements and cohesive application stories that stand out.'
-  },
-  {
     name: 'Komal Das, PhD',
     role: 'Co-Founder',
     expertise: 'Strategic Planning & Leadership',
@@ -49,7 +42,7 @@ export default function Team() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid sm:grid-cols-2 gap-8 lg:gap-12 max-w-3xl mx-auto">
           {team.map((member, idx) => (
             <motion.div
               key={idx}
