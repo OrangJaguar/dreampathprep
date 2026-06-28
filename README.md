@@ -1,39 +1,52 @@
-**Welcome to your Base44 project** 
+# DreamPath Prep
 
-**About**
+A conversion-optimized marketing and lead generation website for DreamPath Prep — a college admissions consulting firm led by PhD-level advisors helping students get into their dream schools.
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+## 🎓 About the Site
 
-This project contains everything you need to run your app locally.
+DreamPath Prep's website serves as the primary marketing and client acquisition platform for the business. The centerpiece is an interactive college readiness diagnostic that qualifies leads, captures contact information, and syncs responses to a CRM pipeline — all in a seamless user flow.
 
-**Edit the code in your local development environment**
+## 🧩 Sections
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+- **Hero** — Value proposition and primary call-to-action
+- **Problem** — Pain-point framing for the college admissions process
+- **Mission** — Company philosophy and PhD-advisor differentiation
+- **Services** — Consulting packages and service tiers
+- **Logo Ticker** — Animated scroll of college/university logos
+- **Team** — PhD consultant profiles and credentials
+- **Diagnostic Quiz** — Interactive 5-question college readiness assessment with dynamic lead capture
+- **Testimonials** — Client social proof
+- **Footer** — Contact information and strategy session booking CTA
 
-**Prerequisites:** 
+## ⭐ Feature Highlight: Interactive Diagnostic
 
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
+The lead generation diagnostic guides prospective clients through 5 personalized questions covering grade level, academic performance, extracurricular narrative, career clarity, and financial fit. After completing the quiz, users submit their contact information to unlock personalized results. On submission:
 
+- Contact data (name, email, phone, high school) is saved to the backend database
+- Quiz responses are synced to Google Sheets for the sales team
+- Users receive a dynamically-generated result ("Foundation Phase" vs. "Execution Phase") based on their answers
+
+## 🛠 Tech Stack
+
+- **Frontend:** React 18, Vite, Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Backend, Functions & Deployment:** Base44
+- **CRM Sync:** Google Sheets (via Base44 server function)
+
+## 🔧 Local Development
+
+```bash
+npm install
+npm run dev
 ```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
 
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
-```
+> **Note:** The lead capture and Google Sheets sync requires Base44 backend credentials. The live site is deployed via Base44.
 
-Run the app: `npm run dev`
+## 📸 Live Site
 
-**Publish your changes**
+[https://dreampathprep.com]
 
-Open [Base44.com](http://Base44.com) and click on Publish.
+## 📋 Context
 
-**Docs & Support**
-
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+Designed and developed as a personal project for a college consulting business. Built with a focus on conversion rate optimization — the diagnostic quiz functions as an interactive lead funnel rather than a static contact form.
