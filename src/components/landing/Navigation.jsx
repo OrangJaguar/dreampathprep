@@ -187,7 +187,7 @@ export default function Navigation() {
                     <Facebook className="w-6 h-6" />
                   </a>
                   <a
-                    href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+                    href="https://chat.whatsapp.com/GWGBcq6VSsSGIjDDDizTeG?mode=gi_t"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white/70 hover:bg-white/20 hover:text-white transition-all"

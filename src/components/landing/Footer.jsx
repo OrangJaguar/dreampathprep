@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Key, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { Mail, Key, Instagram, Facebook } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -66,6 +67,27 @@ export default function Footer() {
           </div>
         </motion.div>
 
+        {/* WhatsApp Community */}
+        <div className="text-center mb-16">
+          <img
+            src="https://media.base44.com/images/public/6979104353f8a38b3d9a07ec/889a746b9_bKTWXu.png"
+            alt="WhatsApp Community QR Code"
+            className="w-40 h-40 mx-auto rounded-xl bg-white p-2 mb-4"
+          />
+          <p className="text-white/70 text-lg">
+            Join our free community{' '}
+            <a
+              href="https://chat.whatsapp.com/GWGBcq6VSsSGIjDDDizTeG?mode=gi_t"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold underline hover:text-white transition-colors"
+              style={{ color: '#C5A059' }}
+            >
+              here
+            </a>
+          </p>
+        </div>
+
         {/* Contact Info */}
         <div id="socials" className="pt-12 border-t border-white/10">
           <div className="grid md:grid-cols-3 gap-8 items-center">
@@ -80,9 +102,9 @@ export default function Footer() {
 
             {/* Contact Details */}
             <div className="flex flex-col items-center gap-4 text-white/70 text-sm">
-              <a href="mailto:KMK@dreampathprep.com" className="flex items-center gap-2 hover:text-white transition-colors">
+              <a href="mailto:contact@dreampathprep.com" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Mail className="w-4 h-4" />
-                KMK@dreampathprep.com
+                contact@dreampathprep.com
               </a>
             </div>
 
@@ -110,6 +132,11 @@ export default function Footer() {
           {/* Copyright */}
           <div className="text-center mt-8 text-white/40 text-sm">
             <p>© {new Date().getFullYear()} DreamPathPrep. All rights reserved.</p>
+            <div className="flex items-center justify-center gap-4 mt-2">
+              <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <span>·</span>
+              <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
+            </div>
             <p className="mt-2 text-xs">Website Crafted by Sanskar Gupta</p>
           </div>
         </div>

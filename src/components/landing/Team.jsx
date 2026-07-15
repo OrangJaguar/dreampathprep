@@ -6,14 +6,14 @@ const team = [
     name: 'Komal Das, PhD',
     role: 'Co-Founder',
     expertise: 'Strategic Planning & Leadership',
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/92f0e6519_IMG_6491.jpeg',
+    image: 'https://media.base44.com/images/public/6979104353f8a38b3d9a07ec/bccccc3da_Komal.png',
     bio: 'Specializes in early academic roadmapping and building the high-impact leadership profiles that elite colleges demand.'
   },
   {
     name: 'Mridula Gupta, PhD',
     role: 'Co-Founder',
     expertise: 'School Fit & Financial Aid',
-    image: 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/92502348c_Mridula.jpg',
+    image: 'https://media.base44.com/images/public/6979104353f8a38b3d9a07ec/d9a05b5a1_Midu.jpg',
     bio: 'Focuses on data-driven college list creation and maximizing scholarship opportunities to ensure the perfect academic and financial match.'
   }
 ];
@@ -101,6 +101,21 @@ export default function Team() {
             </motion.div>
           ))}
         </div>
+
+        {/* NACAC Member Logo */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center mt-16"
+        >
+          <img
+            src="https://media.base44.com/images/public/6979104353f8a38b3d9a07ec/c3c9ee094_nacac.webp"
+            alt="NACAC Member — National Association for College Admission Counseling"
+            className="h-20 md:h-24 w-auto opacity-80"
+          />
+        </motion.div>
       </div>
     </section>
   );
