@@ -1,0 +1,70 @@
+{
+  "name": "QuizResponse",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Parent name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Email address"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "school": {
+      "type": "string",
+      "description": "High school and district"
+    },
+    "grade_level": {
+      "type": "string",
+      "description": "Student's current grade level"
+    },
+    "career_clarity": {
+      "type": "string",
+      "description": "How clear student is on career path"
+    },
+    "academics": {
+      "type": "string",
+      "description": "Current academic performance"
+    },
+    "narrative": {
+      "type": "string",
+      "description": "Student's signature story or passion"
+    },
+    "financial_confidence": {
+      "type": "string",
+      "description": "Confidence in finding academic and financial fit"
+    }
+  },
+  "required": [
+    "name",
+    "email",
+    "phone",
+    "school"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
