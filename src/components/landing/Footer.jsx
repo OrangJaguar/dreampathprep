@@ -51,15 +51,8 @@ export default function Footer() {
             </p>
             
             {/* Calendly Embed */}
-            <div className="mb-4">
-              <iframe
-                src="https://calendly.com/kmk-dreampathprep/30min?embed_domain=base44.app&embed_type=Inline&hide_gdpr_banner=1"
-                width="100%"
-                height="700"
-                frameBorder="0"
-                className="rounded-xl"
-              />
-            </div>
+            <div className="calendly-inline-widget mb-4 rounded-xl overflow-hidden" data-url="https://calendly.com/kmk-dreampathprep/30min?hide_gdpr_banner=1" style={{ minWidth: '320px', height: '700px' }} />
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async />
             
             <p className="text-xs text-gray-400">
               30-minute strategy call with a PhD consultant
