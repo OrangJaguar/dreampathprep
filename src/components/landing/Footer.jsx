@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Key, Instagram, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
+  useEffect(() => {
+    if (window.Calendly) {
+      window.Calendly.initInlineWidgets();
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    script.onload = () => {
+      if (window.Calendly) window.Calendly.initInlineWidgets();
+    };
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <footer id="footer" className="py-24 md:py-32" style={{ backgroundColor: '#0A192F' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,9 +66,17 @@ export default function Footer() {
             
             {/* Calendly Embed */}
             <div className="calendly-inline-widget mb-4 rounded-xl overflow-hidden" data-url="https://calendly.com/kmk-dreampathprep/30min?hide_gdpr_banner=1" style={{ minWidth: '320px', height: '700px' }} />
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async />
-            
-            <p className="text-xs text-gray-400">
+
+            <a
+              href="https://calendly.com/kmk-dreampathprep/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-gray-500 hover:text-gray-700 underline transition-colors"
+            >
+              Can't see the calendar? Open scheduling page →
+            </a>
+
+            <p className="text-xs text-gray-400 mt-2">
               30-minute strategy call with a PhD consultant
             </p>
           </div>
