@@ -25,6 +25,7 @@ export default function Navigation() {
       isDropdown: true,
       items: [
         { label: 'Mission', id: 'mission' },
+        { label: 'Our Vision', id: 'vision' },
         { label: 'Meet the Team', id: 'team' }
       ]
     },
