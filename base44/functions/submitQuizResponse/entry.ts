@@ -5,6 +5,14 @@ Deno.serve(async (req) => {
         const base44 = createClientFromRequest(req);
         const payload = await req.json();
 
+        // Validate required fields — reject incomplete/empty submissions
+        if (!payload?.formData?.name?.trim() || !payload?.formData?.email?.trim() ||
+            !payload?.formData?.phone?.trim() || !payload?.formData?.school?.trim()) {
+            return Response.json({
+                error: "Missing required fields."
+            }, { status: 400 });
+        }
+
         // Save to database
         const quizResponse = await base44.asServiceRole.entities.QuizResponse.create({
             name: payload.formData.name,
