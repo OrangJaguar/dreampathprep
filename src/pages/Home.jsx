@@ -4,6 +4,7 @@ import Hero from '@/components/landing/Hero';
 import LogoTicker from '@/components/landing/LogoTicker';
 import Problem from '@/components/landing/Problem';
 import Mission from '@/components/landing/Mission';
+import Vision from '@/components/landing/Vision';
 import Team from '@/components/landing/Team';
 import Services from '@/components/landing/Services';
 import Testimonial from '@/components/landing/Testimonial';
@@ -32,6 +33,7 @@ export default function Home() {
       <LogoTicker />
       <Problem />
       <Mission />
+      <Vision />
       <Team />
       <Services />
       <Testimonial />
