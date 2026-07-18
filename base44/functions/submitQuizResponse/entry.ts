@@ -70,8 +70,9 @@ Deno.serve(async (req) => {
             sheetResponse: responseText
         });
     } catch (error) {
+        console.error("submitQuizResponse error:", error);
         return Response.json({ 
-            error: error.message 
+            error: "An internal error occurred while saving your response." 
         }, { status: 500 });
     }
 });
