@@ -25,7 +25,7 @@ const differentiators = [
 
 export default function Vision() {
   return (
-    <section id="vision" className="py-24 md:py-32" style={{ backgroundColor: '#0A192F' }}>
+    <section id="vision" className="py-16 md:py-20" style={{ backgroundColor: '#0A192F' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Vision text */}
@@ -39,10 +39,10 @@ export default function Vision() {
               Our Vision
             </span>
             <h2
-              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white"
+              className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-white whitespace-nowrap"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              Every Student,<br />A Unique Path
+              Every Student, A Unique Path
             </h2>
             <p className="text-white/70 text-lg leading-relaxed">
               No two students share the same aspirations—or the same constraints. Financial considerations, health needs, visa status, and personal priorities all shape what's possible, and those realities should guide strategy, not limit ambition. We believe decisions should never follow a one-size-fits-all model. Our vision is to deliver deeply personalized, strategic guidance that aligns each student's path with their unique circumstances and goals – transforming aspirations for dream colleges and future careers into reality through intentional positioning and planning, and building a strong foundation for long-term success.

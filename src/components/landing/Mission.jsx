@@ -4,14 +4,14 @@ import { Microscope, Radar, BarChart3, Sparkles } from 'lucide-react';
 
 export default function Mission() {
   return (
-    <section id="mission" className="py-24 md:py-32 border-t-2 border-dotted" style={{ backgroundColor: '#F9F8F4', borderColor: '#C5A059' }}>
+    <section id="mission" className="py-16 md:py-20 border-t-2 border-dotted" style={{ backgroundColor: '#F9F8F4', borderColor: '#C5A059' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
           <h2 
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
@@ -19,7 +19,7 @@ export default function Mission() {
           >
             Our Mission
           </h2>
-          <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-12">
+          <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-8">
             We simplify the college admissions journey through personalized, strategic guidance. Our experts help students identify their unique strengths and translate them into compelling applications that earn admission to colleges where they can truly thrive.
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export default function Mission() {
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center gap-3">
                       <div 
-                        className="w-10 h-10 rounded-lg flex items-center justify-center"
+                        className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
                         style={{ backgroundColor: '#0A192F' }}
                       >
                         <item.icon className="w-5 h-5 text-white" />
