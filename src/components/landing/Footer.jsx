@@ -1,23 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Key, Instagram, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
-  useEffect(() => {
-    if (window.Calendly) {
-      window.Calendly.initInlineWidgets();
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    script.onload = () => {
-      if (window.Calendly) window.Calendly.initInlineWidgets();
-    };
-    document.body.appendChild(script);
-  }, []);
-
   return (
     <footer id="footer" className="py-24 md:py-32" style={{ backgroundColor: '#0A192F' }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,8 +50,13 @@ export default function Footer() {
               Choose a time that works for you. Our strategy sessions are complimentary and obligation-free.
             </p>
             
-            {/* Calendly Embed */}
-            <div className="calendly-inline-widget mb-4 rounded-xl overflow-hidden" data-url="https://calendly.com/kmk-dreampathprep/30min?hide_gdpr_banner=1" style={{ minWidth: '320px', height: '700px' }} />
+            {/* Calendly Inline Embed */}
+            <iframe
+              src={`https://calendly.com/kmk-dreampathprep/30min?hide_gdpr_banner=1&embed_domain=${window.location.hostname}&embed_type=Inline`}
+              className="mb-4 rounded-xl overflow-hidden w-full"
+              style={{ minWidth: '320px', height: '700px', border: '0' }}
+              title="Schedule Your Free Consultation"
+            />
 
             <a
               href="https://calendly.com/kmk-dreampathprep/30min"
