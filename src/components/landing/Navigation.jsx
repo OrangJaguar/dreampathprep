@@ -30,6 +30,7 @@ export default function Navigation() {
       ]
     },
     { label: 'Services', id: 'services' },
+    { label: 'Refer a Friend', id: 'refer' },
     { label: 'Success Stories', id: 'testimonial' },
     { 
       label: 'Contact Us', 

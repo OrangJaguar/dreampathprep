@@ -1,0 +1,75 @@
+{
+  "name": "Referral",
+  "type": "object",
+  "properties": {
+    "referee_first_name": {
+      "type": "string",
+      "description": "First name of the person referring"
+    },
+    "referee_last_name": {
+      "type": "string",
+      "description": "Last name of the person referring"
+    },
+    "referee_email": {
+      "type": "string",
+      "description": "Email of the person referring"
+    },
+    "referee_phone": {
+      "type": "string",
+      "description": "Phone number of the person referring"
+    },
+    "friend_first_name": {
+      "type": "string",
+      "description": "First name of the referred friend/family member"
+    },
+    "friend_last_name": {
+      "type": "string",
+      "description": "Last name of the referred friend/family member"
+    },
+    "friend_email": {
+      "type": "string",
+      "description": "Email of the referred friend/family member"
+    },
+    "friend_phone": {
+      "type": "string",
+      "description": "Phone number of the referred friend/family member"
+    },
+    "friend_graduation_year": {
+      "type": "string",
+      "description": "Expected high school graduation year or current grade of the referred friend"
+    }
+  },
+  "required": [
+    "referee_first_name",
+    "referee_last_name",
+    "referee_email",
+    "referee_phone",
+    "friend_first_name",
+    "friend_last_name",
+    "friend_email",
+    "friend_phone",
+    "friend_graduation_year"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

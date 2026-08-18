@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { AlertTriangle } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
 
 export default function Hero() {
@@ -35,28 +35,12 @@ export default function Hero() {
             <span style={{ color: '#C5A059' }}>Ambitious Students</span>
           </h1>
 
-          <p 
-            className="text-white/70 text-xl md:text-2xl mb-6 italic"
+          <p
+            className="text-white/70 text-xl md:text-2xl mb-10 italic"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Empowering Dreams, One Student at a Time
           </p>
-
-
-
-          {/* Scarcity Tag */}
-          <motion.button
-            onClick={scrollToFooter}
-            animate={{ scale: [1, 1.02, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full mb-10 cursor-pointer hover:opacity-90 transition-opacity"
-            style={{ backgroundColor: 'rgba(197, 160, 89, 0.15)', border: '1px solid #C5A059' }}
-          >
-            <AlertTriangle className="w-5 h-5" style={{ color: '#C5A059' }} />
-            <span className="font-semibold text-base" style={{ color: '#C5A059' }}>
-              Limited spots available
-            </span>
-          </motion.button>
 
           <div>
             <Button

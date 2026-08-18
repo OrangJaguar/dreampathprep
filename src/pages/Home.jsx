@@ -9,6 +9,7 @@ import Team from '@/components/landing/Team';
 import Services from '@/components/landing/Services';
 import Testimonial from '@/components/landing/Testimonial';
 import Diagnostic from '@/components/landing/Diagnostic';
+import ReferAFriend from '@/components/landing/ReferAFriend';
 import Footer from '@/components/landing/Footer';
 
 export default function Home() {
@@ -38,6 +39,7 @@ export default function Home() {
       <Services />
       <Testimonial />
       <Diagnostic />
+      <ReferAFriend />
       <Footer />
     </div>
   );
