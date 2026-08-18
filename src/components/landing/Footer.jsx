@@ -144,6 +144,7 @@ export default function Footer() {
               <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
             </div>
             <p className="mt-2 text-xs">Website Crafted by Sanskar Gupta</p>
+            <Link to="/admin" className="mt-3 inline-block text-white/20 hover:text-white/50 transition-colors text-xs">Admin</Link>
           </div>
         </div>
       </div>

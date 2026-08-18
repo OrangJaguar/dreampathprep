@@ -31,40 +31,6 @@ export default async function(req) {
       friend_graduation_year: f.friend_graduation_year
     });
 
-    // Append to Google Sheet (Referrals tab)
-    const accessToken = await base44.asServiceRole.connectors.getAccessToken("googlesheets");
-    const sheetId = Deno.env.get("GOOGLE_SHEET_ID");
-    const timestamp = new Date().toISOString();
-    const rowData = [
-      timestamp,
-      f.referee_first_name,
-      f.referee_last_name,
-      f.referee_email,
-      f.referee_phone,
-      f.friend_first_name,
-      f.friend_last_name,
-      f.friend_email,
-      f.friend_phone,
-      f.friend_graduation_year
-    ];
-
-    const sheetResponse = await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Referrals!A:J:append?valueInputOption=RAW`,
-      {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${accessToken}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ values: [rowData] })
-      }
-    );
-
-    if (!sheetResponse.ok) {
-      const errText = await sheetResponse.text();
-      console.error("Google Sheets error:", errText);
-    }
-
     return Response.json({ success: true, id: referral.id });
   } catch (error) {
     console.error("submitReferral error:", error);

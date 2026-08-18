@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { LogOut, RefreshCw } from 'lucide-react';
+import { LogOut, RefreshCw, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import PasswordGate from '@/components/admin/PasswordGate';
 import ResponsesTable from '@/components/admin/ResponsesTable';
@@ -82,14 +83,19 @@ export default function Admin() {
     <div className="min-h-screen" style={{ backgroundColor: '#F9F8F4' }}>
       <header className="sticky top-0 z-10 shadow-md" style={{ backgroundColor: '#0A192F' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
+            <Link to="/" className="flex items-center gap-1.5 text-white/70 hover:text-white text-sm transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+              <span className="hidden sm:inline">View Website</span>
+            </Link>
+            <div className="w-px h-6 bg-white/20 hidden sm:block" />
             <img src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/6979104353f8a38b3d9a07ec/82f700ed7_image-removebg-preview8.png" alt="DreamPathPrep" className="h-9 w-auto" />
-            <span className="text-white font-semibold tracking-wide hidden sm:inline">Admin Dashboard</span>
+            <span className="text-white font-semibold tracking-wide hidden md:inline">Admin Dashboard</span>
           </div>
           <div className="flex items-center gap-2">
-            <Button onClick={handleRefresh} disabled={loading} variant="outline" className="text-white border-white/20 hover:bg-white/10 rounded-full" size="sm">
-              <RefreshCw className={`w-4 h-4 mr-1 ${loading ? 'animate-spin' : ''}`} /> Refresh
-            </Button>
+            <button onClick={handleRefresh} disabled={loading} className="flex items-center gap-1 px-4 py-2 rounded-full text-white text-sm border border-white/20 bg-transparent hover:bg-white/10 transition-colors disabled:opacity-60">
+              <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} /> Refresh
+            </button>
             <Button onClick={handleLogout} className="rounded-full text-white" size="sm" style={{ backgroundColor: '#3E5C76' }}>
               <LogOut className="w-4 h-4 mr-1" /> Lock
             </Button>

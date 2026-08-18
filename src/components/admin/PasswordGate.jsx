@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Lock } from 'lucide-react';
+import { Lock, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 export default function PasswordGate({ onUnlock }) {
@@ -21,7 +22,10 @@ export default function PasswordGate({ onUnlock }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: '#0A192F' }}>
+    <div className="min-h-screen relative flex items-center justify-center px-4" style={{ backgroundColor: '#0A192F' }}>
+      <Link to="/" className="absolute top-6 left-6 flex items-center gap-1.5 text-white/60 hover:text-white text-sm transition-colors">
+        <ArrowLeft className="w-4 h-4" /> View Website
+      </Link>
       <div className="bg-white rounded-2xl p-8 md:p-10 shadow-2xl w-full max-w-md">
         <div className="text-center mb-6">
           <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'rgba(197, 160, 89, 0.15)' }}>
